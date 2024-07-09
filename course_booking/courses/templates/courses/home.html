@@ -1,0 +1,106 @@
+{% extends "base_generic.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+    .jumbotron {
+        background-color: #f8f9fa;
+        padding: 2rem 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .difference-statement {
+        background-color: #e9f7f9;
+        border-left: 5px solid #007bff;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 4px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .difference-statement:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial-card {
+        background-color: #f8f9fa;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Online Course Registration!</h1>
+    <p class="lead">This is a simple application to manage and book courses.</p>
+    <hr class="my-4">
+    <p>Explore our courses and enhance your skills.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'course_list' %}" role="button">View Courses</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>About Our App</h2>
+            <p>Our app provides a platform where users can browse, enroll in, and manage courses across various subjects. Our goal is to make learning accessible and enjoyable for everyone.</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Testimonials</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <h5 class="card-title">User 1</h5>
+                            <p class="card-text">"This app is amazing! It has helped me to learn new skills and improve my knowledge."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <h5 class="card-title">User 2</h5>
+                            <p class="card-text">"A great platform with a variety of courses. Highly recommended!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card testimonial-card">
+                        <div class="card-body">
+                            <h5 class="card-title">User 3</h5>
+                            <p class="card-text">"I love the user-friendly interface and the range of courses available."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h2 class="text-center">What Sets Us Apart</h2>
+            <div class="difference-statement">
+                <h5>Personalized Learning Paths</h5>
+                <p>Our app offers personalized learning paths tailored to your individual needs and goals, helping you achieve success faster.</p>
+            </div>
+            <div class="difference-statement">
+                <h5>Expert Instructors</h5>
+                <p>Learn from industry experts and experienced instructors who are dedicated to your growth and success.</p>
+            </div>
+            <div class="difference-statement">
+                <h5>Comprehensive Course Library</h5>
+                <p>We provide a comprehensive library of courses across various domains, ensuring that you have access to the knowledge you need.</p>
+            </div>
+            <div class="difference-statement">
+                <h5>Community Support</h5>
+                <p>Join a community of learners and professionals who are always ready to help and support you in your learning journey.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

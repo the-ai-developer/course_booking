@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Online Course Registration{% endblock %}</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+            font-family: "Ubuntu Sans Mono", monospace;
+            font-style: normal;
+        }
+        .navbar {
+            background-color: #343a40; /* Dark background color for navbar */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add shadow to navbar */
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff; /* White text color for navbar brand */
+        }
+        .navbar-nav .nav-item .nav-link {
+            font-size: 1.2rem;
+            color: #ffffff !important; /* White text color for navbar links */
+        }
+        .navbar-nav .nav-item .nav-link:hover {
+            color: #cccccc !important; /* Light gray text color on hover */
+        }
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: .3rem;
+        }
+        .testimonial-card {
+            margin-bottom: 1.5rem;
+        }
+        /* Footer styles */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #343a40; /* Dark background color */
+            color: white; /* Light text color */
+            padding: 10px 0;
+            text-align: center;
+        }
+        #Text{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'home' %}" id="Text">Online Course Registration</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'course_list' %}">Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'aboutus' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-4 mb-5"> <!-- Adjusted margin-bottom to make space for footer -->
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Online Course Registration. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Add Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Course Detail{% endblock %}
+
+{% block content %}
+<style>
+    .course-detail-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .course-detail-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-radius: 8px;
+    }
+    .course-detail-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .course-detail-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #007bff;
+        margin-bottom: 1rem;
+    }
+    .course-detail-text {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+    .course-detail-strong {
+        font-weight: bold;
+    }
+    .btn-enroll {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+    .btn-enroll:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container course-detail-container">
+    <div class="card shadow-sm course-detail-card">
+        <div class="card-body">
+            <h2 class="card-title course-detail-title">{{ course.title }}</h2>
+            <p class="card-text course-detail-text">{{ course.description }}</p>
+            <p class="card-text course-detail-text"><span class="course-detail-strong">Instructor:</span> {{ course.instructor }}</p>
+            <p class="card-text course-detail-text"><span class="course-detail-strong">Start Date:</span> {{ course.start_date }}</p>
+            <p class="card-text course-detail-text"><span class="course-detail-strong">End Date:</span> {{ course.end_date }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-enroll">Enroll</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

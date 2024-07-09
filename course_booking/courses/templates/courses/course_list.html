@@ -1,0 +1,67 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Course List{% endblock %}
+
+{% block content %}
+<style>
+    .course-list-container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .course-list-header {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+    .course-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border-radius: 8px;
+    }
+    .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .course-card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+    }
+    .course-card-text {
+        font-size: 1rem;
+        color: #555;
+    }
+    .course-card-footer {
+        background-color: #f8f9fa;
+        border-top: 1px solid #e9ecef;
+        text-align: right;
+    }
+    .btn-view-details {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+    .btn-view-details:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container course-list-container">
+    <h2 class="course-list-header text-center">Course List</h2>
+    <div class="row">
+        {% for course in courses %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm course-card">
+                <div class="card-body">
+                    <h3 class="card-title course-card-title">{{ course.title }}</h3>
+                    <p class="card-text course-card-text">{{ course.description }}</p>
+                </div>
+                <div class="card-footer course-card-footer">
+                    <a href="{% url 'course_detail' course.pk %}" class="btn btn-primary btn-sm btn-view-details">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

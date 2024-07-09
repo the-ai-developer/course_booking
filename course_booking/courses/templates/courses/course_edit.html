@@ -1,0 +1,71 @@
+{% extends 'base_generic.html' %}
+
+{% block title %}Edit Course{% endblock %}
+
+{% block content %}
+<style>
+    .edit-course-container {
+        margin-top: 4rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .edit-course-title {
+        font-size: 2rem;
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .form-label {
+        font-weight: bold;
+    }
+    .btn-save {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        margin-top: 1rem;
+    }
+    .btn-save:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container edit-course-container">
+    <h2 class="edit-course-title">Edit Course</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_title" class="form-label">Title</label>
+                <input type="text" name="title" id="id_title" class="form-control" value="{{ form.title.value }}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="id_instructor" class="form-label">Instructor</label>
+                <input type="text" name="instructor" id="id_instructor" class="form-control" value="{{ form.instructor.value }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_start_date" class="form-label">Start Date</label>
+                <input type="date" name="start_date" id="id_start_date" class="form-control" value="{{ form.start_date.value }}">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="id_end_date" class="form-label">End Date</label>
+                <input type="date" name="end_date" id="id_end_date" class="form-control" value="{{ form.end_date.value }}">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description</label>
+            <textarea name="description" id="id_description" class="form-control" rows="5">{{ form.description.value }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-save">Save</button>
+    </form>
+</div>
+{% endblock %}
